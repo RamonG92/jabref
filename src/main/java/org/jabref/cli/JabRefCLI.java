@@ -20,6 +20,15 @@ public class JabRefCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(JabRefCLI.class);
     private final CommandLine cl;
     private List<String> leftOver;
+    private static final String PREXP = "prexp";
+    private static final String PRIMP = "primp";
+    private static final String PRDEF = "prdef";
+    private static final String OUTPUT = "output";
+    private static final String IMPORTBIBTEX = "importBibtex";
+    private static final String IMPORT = "import";
+    private static final String IMPORTTOOPEN = "importToOpen";
+    private static final String FETCH = "fetch";
+    private static final String EXPORTMATCHES = "exportMatches";
 
     public JabRefCLI(String[] args) throws ParseException {
         Options options = getOptions();
@@ -56,51 +65,51 @@ public class JabRefCLI {
     }
 
     public boolean isPreferencesExport() {
-        return cl.hasOption("prexp");
+        return cl.hasOption(PREXP);
     }
 
     public String getPreferencesExport() {
-        return cl.getOptionValue("prexp", "jabref_prefs.xml");
+        return cl.getOptionValue(PREXP, "jabref_prefs.xml");
     }
 
     public boolean isPreferencesImport() {
-        return cl.hasOption("primp");
+        return cl.hasOption(PRIMP);
     }
 
     public String getPreferencesImport() {
-        return cl.getOptionValue("primp", "jabref_prefs.xml");
+        return cl.getOptionValue(PRIMP, "jabref_prefs.xml");
     }
 
     public boolean isPreferencesReset() {
-        return cl.hasOption("prdef");
+        return cl.hasOption(PRDEF);
     }
 
     public String getPreferencesReset() {
-        return cl.getOptionValue("prdef");
+        return cl.getOptionValue(PRDEF);
     }
 
     public boolean isFileExport() {
-        return cl.hasOption("output");
+        return cl.hasOption(OUTPUT);
     }
 
     public String getFileExport() {
-        return cl.getOptionValue("output");
+        return cl.getOptionValue(OUTPUT);
     }
 
     public boolean isBibtexImport() {
-        return cl.hasOption("importBibtex");
+        return cl.hasOption(IMPORTBIBTEX);
     }
 
     public String getBibtexImport() {
-        return cl.getOptionValue("importBibtex");
+        return cl.getOptionValue(IMPORTBIBTEX);
     }
 
     public boolean isFileImport() {
-        return cl.hasOption("import");
+        return cl.hasOption(IMPORT);
     }
 
     public String getFileImport() {
-        return cl.getOptionValue("import");
+        return cl.getOptionValue(IMPORT);
     }
 
     public boolean isAuxImport() {
@@ -112,11 +121,11 @@ public class JabRefCLI {
     }
 
     public boolean isImportToOpenBase() {
-        return cl.hasOption("importToOpen");
+        return cl.hasOption(IMPORTTOOPEN);
     }
 
     public String getImportToOpenBase() {
-        return cl.getOptionValue("importToOpen");
+        return cl.getOptionValue(IMPORTTOOPEN);
     }
 
     public boolean isDebugLogging() {
@@ -124,19 +133,19 @@ public class JabRefCLI {
     }
 
     public boolean isFetcherEngine() {
-        return cl.hasOption("fetch");
+        return cl.hasOption(FETCH);
     }
 
     public String getFetcherEngine() {
-        return cl.getOptionValue("fetch");
+        return cl.getOptionValue(FETCH);
     }
 
     public boolean isExportMatches() {
-        return cl.hasOption("exportMatches");
+        return cl.hasOption(EXPORTMATCHES);
     }
 
     public String getExportMatches() {
-        return cl.getOptionValue("exportMatches");
+        return cl.getOptionValue(EXPORTMATCHES);
     }
 
     public boolean isGenerateBibtexKeys() {
@@ -164,7 +173,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("i")
-                .longOpt("import")
+                .longOpt(IMPORT)
                 .desc(String.format("%s: '%s'", Localization.lang("Import file"), "-i library.bib"))
                 .hasArg()
                 .argName("FILE[,FORMAT]")
@@ -172,7 +181,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder()
-                .longOpt("importToOpen")
+                .longOpt(IMPORTTOOPEN)
                 .desc(Localization.lang("Same as --import, but will be imported to the opened tab"))
                 .hasArg()
                 .argName("FILE[,FORMAT]")
@@ -180,7 +189,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("ib")
-                .longOpt("importBibtex")
+                .longOpt(IMPORTBIBTEX)
                 .desc(String.format("%s: '%s'", Localization.lang("Import BibTeX"), "-ib @article{entry}"))
                 .hasArg()
                 .argName("BIBTEXT_STRING")
@@ -188,7 +197,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("o")
-                .longOpt("output")
+                .longOpt(OUTPUT)
                 .desc(String.format("%s: '%s'", Localization.lang("Export an input to a file"), "-i db.bib -o db.htm,html"))
                 .hasArg()
                 .argName("FILE[,FORMAT]")
@@ -196,7 +205,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("m")
-                .longOpt("exportMatches")
+                .longOpt(EXPORTMATCHES)
                 .desc(String.format("%s: '%s'", Localization.lang("Matching"), "-i db.bib -m author=Newton,search.htm,html"))
                 .hasArg()
                 .argName("QUERY,FILE[,FORMAT]")
@@ -204,7 +213,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("f")
-                .longOpt("fetch")
+                .longOpt(FETCH)
                 .desc(String.format("%s: '%s'", Localization.lang("Run fetcher"), "-f Medline/PubMed:cancer"))
                 .hasArg()
                 .argName("FETCHER:QUERY")
@@ -220,7 +229,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("x")
-                .longOpt("prexp")
+                .longOpt(PREXP)
                 .desc(String.format("%s: '%s'", Localization.lang("Export preferences to a file"), "-x prefs.xml"))
                 .hasArg()
                 .argName("[FILE]")
@@ -228,7 +237,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("p")
-                .longOpt("primp")
+                .longOpt(PRIMP)
                 .desc(String.format("%s: '%s'", Localization.lang("Import preferences from a file"), "-p prefs.xml"))
                 .hasArg()
                 .argName("[FILE]")
@@ -236,7 +245,7 @@ public class JabRefCLI {
 
         options.addOption(Option
                 .builder("d")
-                .longOpt("prdef")
+                .longOpt(PRDEF)
                 .desc(String.format("%s: '%s'", Localization.lang("Reset preferences"), "-d mainFontSize,newline' or '-d all"))
                 .hasArg()
                 .argName("KEY1[,KEY2][,KEYn] | all")

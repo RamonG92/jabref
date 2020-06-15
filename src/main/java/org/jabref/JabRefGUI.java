@@ -166,7 +166,7 @@ public class JabRefGUI {
         }
 
         for (ParserResult pr : failed) {
-            String message = Localization.lang("Error opening file '%0'.", pr.getFile().get().getName()) + "\n"
+            String message = Localization.lang("Error opening file '%0'.", pr.getFile().orElse(null).getName()) + "\n"
                     + pr.getErrorMessage();
 
             mainFrame.getDialogService().showErrorDialogAndWait(Localization.lang("Error opening file"), message);

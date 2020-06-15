@@ -18,13 +18,14 @@ class EntryDeleteChangeViewModel extends DatabaseChangeViewModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntryDeleteChangeViewModel.class);
     private final BibEntry entry;
+    private static final String DELETED_ENTRY = "Deleted entry";
 
     public EntryDeleteChangeViewModel(BibEntry entry) {
-        super(Localization.lang("Deleted entry"));
+        super(Localization.lang(DELETED_ENTRY));
 
         this.name = entry.getCiteKeyOptional()
-                         .map(key -> Localization.lang("Deleted entry") + ": '" + key + '\'')
-                         .orElse(Localization.lang("Deleted entry"));
+                         .map(key -> Localization.lang(DELETED_ENTRY) + ": '" + key + '\'')
+                         .orElse(Localization.lang(DELETED_ENTRY));
         this.entry = entry;
     }
 

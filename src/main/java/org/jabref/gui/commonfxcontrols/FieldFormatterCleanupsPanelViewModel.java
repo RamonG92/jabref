@@ -27,7 +27,7 @@ public class FieldFormatterCleanupsPanelViewModel {
     private final ListProperty<Formatter> availableFormattersProperty = new SimpleListProperty<>(FXCollections.observableArrayList(Cleanups.getBuiltInFormatters()));
     private final ObjectProperty<Formatter> selectedFormatterProperty = new SimpleObjectProperty<>();
 
-    public FieldFormatterCleanupsPanelViewModel() {
+    public FieldFormatterCleanupsPanelViewModel() throws UnsupportedOperationException {
     }
 
     public void resetToRecommended() {

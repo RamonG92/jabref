@@ -1,13 +1,13 @@
 package org.jabref.asv;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.jabref.logic.msbib.MSBibConverter;
 import org.jabref.logic.msbib.MSBibEntry;
 import org.jabref.model.entry.BibEntry;
-import org.jabref.model.entry.event.EntriesEventSource;
 import org.jabref.model.entry.field.StandardField;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class MsBibTest {
 
@@ -16,7 +16,7 @@ public class MsBibTest {
     MSBibEntry msBibEntry;
     MSBibEntry msBibEntry1;
 
-    @Before
+    @BeforeEach
     public void setup() {
         entry = new BibEntry();
         entry1 = new BibEntry();
@@ -27,14 +27,13 @@ public class MsBibTest {
     @Test
     public void MsBibTypeConversionTest() {
         entry1.setField(StandardField.TITLE, "A new Article");
-        entry1.setType(null);
-        msBibEntry1 = MSBibConverter.convert(entry);
-        Assert.assertEquals("string", msBibEntry1.getType());
+        msBibEntry1 = MSBibConverter.convert(entry1);
+        assertEquals("Misc", msBibEntry1.getType());
     }
     @Test
     public void MsBibNoTypeConversionTest() {
         entry.setField(StandardField.TITLE, "A new Article");
         msBibEntry = MSBibConverter.convert(entry);
-        Assert.assertEquals("string", msBibEntry.getType());
+        assertEquals("Misc", msBibEntry.getType());
     }
 }

@@ -16,12 +16,9 @@ import org.jabref.logic.bibtex.BibEntryWriter;
 import org.jabref.logic.bibtex.FieldWriter;
 import org.jabref.logic.bibtex.FieldWriterPreferences;
 import org.jabref.logic.importer.FetcherException;
-import org.jabref.logic.importer.ImportFormatPreferences;
-import org.jabref.logic.importer.fetcher.IsbnFetcher;
 import org.jabref.logic.importer.fetcher.SpringerFetcher;
 import org.jabref.model.database.BibDatabaseMode;
 import org.jabref.model.entry.BibEntry;
-import org.jabref.model.entry.BibEntryType;
 import org.jabref.model.entry.BibEntryTypesManager;
 import org.jabref.model.entry.field.StandardField;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,25 +36,27 @@ public class BibTexTest {
         FieldWriterPreferences fieldWriterPreferences = mock(FieldWriterPreferences.class, Answers.RETURNS_DEEP_STUBS);
         writer = new BibEntryWriter(new FieldWriter(fieldWriterPreferences), new BibEntryTypesManager());
         bibEntry = new BibEntry();
+        
     }    
 
     @Test
     public void testGenerateBibTex() throws IOException
     {
         StringWriter bibTexOutput = new StringWriter();
+        BibEntry bibEntry1 = new BibEntry();
 
         // Create an entry for the library
-        bibEntry.setField(StandardField.TITLE, "A new Article");
-        bibEntry.setField(StandardField.AUTHOR, "Mr Swordfish");
-        bibEntry.setField(StandardField.JOURNAL, "Journal about the animal Swordfish");
+        bibEntry1.setField(StandardField.TITLE, "A new Book");
+        bibEntry1.setField(StandardField.AUTHOR, "Mr Swordfish");
+        bibEntry1.setField(StandardField.JOURNAL, "Journal about the animal, Swordfish");
 
-        writer.write(bibEntry, bibTexOutput, BibDatabaseMode.BIBTEX);
+        writer.write(bibEntry1, bibTexOutput, BibDatabaseMode.BIBTEX);
 
         String result = bibTexOutput.toString();
 
-        String expected = "\n@Article{,\n" +
+        String expected = "\n@Misc{,\n" +
                 "  author  = {Mr Swordfish},\n" +
-                "  title   = {A new Article},\n" +
+                "  title   = {A new Book},\n" +
                 "  journal = {Journal about the animal, Swordfish},\n" +
                 "}\n";
 
@@ -85,11 +84,11 @@ public class BibTexTest {
         // Iterate over the results
         Iterator<BibEntry> i = results.iterator();
         while (i.hasNext()) {
-            BibEntry be = i.next();
+            BibEntry bibEntry1 = i.next();
 
-            assertNotNull(be.getField(StandardField.TITLE));
-            assertNotNull(be.getField(StandardField.AUTHOR));
-            assertNotNull(be.getField(StandardField.JOURNAL));
+            assertNotNull(bibEntry1.getField(StandardField.TITLE));
+            assertNotNull(bibEntry1.getField(StandardField.AUTHOR));
+            assertNotNull(bibEntry1.getField(StandardField.JOURNAL));
         }
     }
 }
