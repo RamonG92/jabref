@@ -49,11 +49,9 @@ public class BibTex {
         bibEntry.setField(StandardField.TITLE, "A new Article");
         bibEntry.setField(StandardField.AUTHOR, "Mr Swordfish");
         bibEntry.setField(StandardField.JOURNAL, "Journal about the animal Swordfish");
-
         writer.write(bibEntry, bibTexOutput, BibDatabaseMode.BIBTEX);
 
         String result = bibTexOutput.toString();
-
         String expected = "\n@Article{,\n" +
                 "  author  = {Mr Swordfish},\n" +
                 "  title   = {A new Article},\n" +
