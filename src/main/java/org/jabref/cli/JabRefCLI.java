@@ -16,10 +16,6 @@ import org.slf4j.LoggerFactory;
 
 public class JabRefCLI {
 
-    private static final int WIDTH = 100; // Number of characters per line
-    private static final Logger LOGGER = LoggerFactory.getLogger(JabRefCLI.class);
-    private final CommandLine cl;
-    private List<String> leftOver;
     private static final String PREXP = "prexp";
     private static final String PRIMP = "primp";
     private static final String PRDEF = "prdef";
@@ -29,6 +25,10 @@ public class JabRefCLI {
     private static final String IMPORTTOOPEN = "importToOpen";
     private static final String FETCH = "fetch";
     private static final String EXPORTMATCHES = "exportMatches";
+    private static final int WIDTH = 100; // Number of characters per line
+    private static final Logger LOGGER = LoggerFactory.getLogger(JabRefCLI.class);
+    private final CommandLine cl;
+    private List<String> leftOver;
 
     public JabRefCLI(String[] args) throws ParseException {
         Options options = getOptions();
