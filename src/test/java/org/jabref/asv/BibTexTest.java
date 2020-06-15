@@ -8,6 +8,7 @@ import static org.mockito.Mockito.mock;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,7 +28,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Answers;
 
-public class BibTex {
+public class BibTexTest {
 
     private BibEntry bibEntry;
 
@@ -64,13 +65,14 @@ public class BibTex {
     }
 
     @Test
-    public void testFieldforChangedValue() throws Exception {
-        bibEntry.setField(StandardField.AUTHOR, "Mr. Shark");
-        assertFalse(bibEntry.hasChanged());
+    public void testChangedValue() throws Exception {
+        bibEntry.setField(StandardField.KEYWORDS, "Shark, Fish");
+        bibEntry.putKeywords(Arrays.asList("Dolphin", "Mamal"), ',');
+        assertTrue(bibEntry.hasChanged());
     }
 
     @Test
-    public void testGetSpringerResults() throws FetcherException
+    public void testSpringerResults() throws FetcherException
     {
         SpringerFetcher sf = new SpringerFetcher();
 

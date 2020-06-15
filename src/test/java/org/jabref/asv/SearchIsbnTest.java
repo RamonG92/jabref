@@ -41,7 +41,7 @@ public class SearchIsbnTest {
     }
 
     @Test
-    public void searchByIsbn() throws FetcherException {
+    public void searchByIsbnTest() throws FetcherException {
         Optional<BibEntry> fetchedEntry = fetcher.performSearchById("9781317356660");
         assertEquals(Optional.of(bibEntry), fetchedEntry);
     }

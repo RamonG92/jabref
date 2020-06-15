@@ -25,17 +25,16 @@ public class MsBibTest {
     }
 
     @Test
-    public void MsBibNoTypeConversionTest() {
-        entry.setField(StandardField.TITLE, "A new Article");
-        msBibEntry = MSBibConverter.convert(entry);
-        Assert.assertEquals("string", msBibEntry.getType());
-    }
-
-    @Test
     public void MsBibTypeConversionTest() {
         entry1.setField(StandardField.TITLE, "A new Article");
         entry1.setType(null);
         msBibEntry1 = MSBibConverter.convert(entry);
         Assert.assertEquals("string", msBibEntry1.getType());
+    }
+    @Test
+    public void MsBibNoTypeConversionTest() {
+        entry.setField(StandardField.TITLE, "A new Article");
+        msBibEntry = MSBibConverter.convert(entry);
+        Assert.assertEquals("string", msBibEntry.getType());
     }
 }
