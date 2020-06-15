@@ -33,7 +33,7 @@ public class BiblatexEntryTypeDefinitions {
                     StandardField.AUTHOR, StandardField.TITLE, StandardField.JOURNALTITLE, StandardField.DATE)
             .build();
 
-    private static final BibEntryType BOOK = new BibEntryTypeBuilder()
+    public static final BibEntryType BOOK = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Book)
             .withImportantFields(StandardField.EDITOR,
                     StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.MAINTITLE, StandardField.MAINSUBTITLE,

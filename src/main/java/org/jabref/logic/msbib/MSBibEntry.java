@@ -26,7 +26,7 @@ import org.w3c.dom.NodeList;
  * @see <a href="http://mahbub.wordpress.com/2007/03/22/deciphering-microsoft-office-2007-bibliography-format/">deciphering ms office 2007 bibliography format</a>
  * @see <a href="http://www.ecma-international.org/publications/standards/Ecma-376.htm">ECMA Standard</a>
  */
-class MSBibEntry {
+public class MSBibEntry {
 
     // MSBib fields and values
     public Map<String, String> fields = new HashMap<>();
