@@ -763,6 +763,6 @@ sonarqube {
     property "sonar.organization", "ramong92-github"
     property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.login", "0e6b65edaef11d6e5f050caaa88ef29250e765cb"
-    property "sonar.jacoco.reportPath", "$buildDir/jacoco/test.exec",
+    property "sonar.jacoco.reportPath", "$buildDir/jacoco/test.exec"
   }
 }
