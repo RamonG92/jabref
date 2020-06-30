@@ -85,7 +85,7 @@ class LocalizationConsistencyTest {
             assertEquals(expectedKeyEqualsKey, actualKeyEqualsValue);
         }
     }
-/** 
+/* 
     @Test
     void languageKeysShouldNotBeQuotedInFiles() throws IOException {
         final List<LocalizationEntry> quotedEntries = LocalizationParser
@@ -103,6 +103,7 @@ class LocalizationConsistencyTest {
                                 .collect(Collectors.toList()));
     }
 */
+
     @Test
     void findMissingLocalizationKeys() throws IOException {
         List<LocalizationEntry> missingKeys = LocalizationParser.find(LocalizationBundleForTest.LANG)
@@ -118,7 +119,7 @@ class LocalizationConsistencyTest {
                                    .map(key -> String.format("%s=%s", key.getKey(), key.getKey().replaceAll("\\\\ ", " ")))
                                    .collect(Collectors.joining("\n", "\n", "\n")));
     }
-/**
+/*
     @Test
     void findObsoleteLocalizationKeys() throws IOException {
         Set<String> obsoleteKeys = LocalizationParser.findObsolete(LocalizationBundleForTest.LANG);
@@ -148,6 +149,7 @@ class LocalizationConsistencyTest {
         }
     }
  */
+
     private static Language[] installedLanguages() {
         return Language.values();
     }

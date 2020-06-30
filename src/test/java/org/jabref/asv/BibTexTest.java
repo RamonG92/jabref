@@ -29,7 +29,7 @@ public class BibTexTest {
         bibEntry = new BibEntry();
         
     }    
-/** 
+/* 
     @Test
     public void testGenerateBibTex() throws IOException
     {
@@ -60,7 +60,7 @@ public class BibTexTest {
         bibEntry.putKeywords(Arrays.asList("Dolphin", "Mamal"), ',');
         assertTrue(bibEntry.hasChanged());
     }
-/** 
+/* 
     @Test
     public void testSpringerResults() throws FetcherException
     {
