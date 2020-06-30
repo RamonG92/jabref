@@ -15,6 +15,25 @@ import org.jabref.model.entry.field.StandardField;
  */
 public class BiblatexEntryTypeDefinitions {
 
+    public static final BibEntryType BOOK = new BibEntryTypeBuilder()
+             .withType(StandardEntryType.Book)
+             .withImportantFields(StandardField.EDITOR,
+                    StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.MAINTITLE, StandardField.MAINSUBTITLE,
+                    StandardField.MAINTITLEADDON, StandardField.VOLUME, StandardField.EDITION, StandardField.PUBLISHER, StandardField.ISBN,
+                    StandardField.CHAPTER, StandardField.PAGES, StandardField.PAGETOTAL, StandardField.DOI, StandardField.EPRINT,
+                    StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
+            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE)
+            .withDetailFields(StandardField.EDITOR, StandardField.EDITORA, StandardField.EDITORB, StandardField.EDITORC,
+                    StandardField.TRANSLATOR, StandardField.ANNOTATOR, StandardField.COMMENTATOR, StandardField.INTRODUCTION,
+                    StandardField.FOREWORD, StandardField.AFTERWORD, StandardField.SUBTITLE, StandardField.TITLEADDON,
+                    StandardField.MAINTITLE, StandardField.MAINSUBTITLE, StandardField.MAINTITLEADDON, StandardField.LANGUAGE,
+                    StandardField.ORIGLANGUAGE, StandardField.VOLUME, StandardField.PART, StandardField.EDITION, StandardField.VOLUMES,
+                    StandardField.SERIES, StandardField.NUMBER, StandardField.NOTE, StandardField.PUBLISHER, StandardField.LOCATION,
+                    StandardField.ISBN, StandardField.CHAPTER, StandardField.PAGES, StandardField.PAGETOTAL, StandardField.ADDENDUM,
+                    StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT, StandardField.EPRINTCLASS, StandardField.EPRINTTYPE,
+                    StandardField.URL, StandardField.URLDATE)
+            .build();
+
     private static final BibEntryType ARTICLE = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Article)
             .withImportantFields(
@@ -417,25 +436,6 @@ public class BiblatexEntryTypeDefinitions {
                     StandardField.TYPE, StandardField.VERSION, StandardField.NOTE, StandardField.ORGANIZATION, StandardField.LOCATION,
                     StandardField.ADDENDUM, StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT,
                     StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
-            .build();
-
-    public static final BibEntryType BOOK = new BibEntryTypeBuilder()
-            .withType(StandardEntryType.Book)
-            .withImportantFields(StandardField.EDITOR,
-                    StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.MAINTITLE, StandardField.MAINSUBTITLE,
-                    StandardField.MAINTITLEADDON, StandardField.VOLUME, StandardField.EDITION, StandardField.PUBLISHER, StandardField.ISBN,
-                    StandardField.CHAPTER, StandardField.PAGES, StandardField.PAGETOTAL, StandardField.DOI, StandardField.EPRINT,
-                    StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
-            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE)
-            .withDetailFields(StandardField.EDITOR, StandardField.EDITORA, StandardField.EDITORB, StandardField.EDITORC,
-                    StandardField.TRANSLATOR, StandardField.ANNOTATOR, StandardField.COMMENTATOR, StandardField.INTRODUCTION,
-                    StandardField.FOREWORD, StandardField.AFTERWORD, StandardField.SUBTITLE, StandardField.TITLEADDON,
-                    StandardField.MAINTITLE, StandardField.MAINSUBTITLE, StandardField.MAINTITLEADDON, StandardField.LANGUAGE,
-                    StandardField.ORIGLANGUAGE, StandardField.VOLUME, StandardField.PART, StandardField.EDITION, StandardField.VOLUMES,
-                    StandardField.SERIES, StandardField.NUMBER, StandardField.NOTE, StandardField.PUBLISHER, StandardField.LOCATION,
-                    StandardField.ISBN, StandardField.CHAPTER, StandardField.PAGES, StandardField.PAGETOTAL, StandardField.ADDENDUM,
-                    StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT, StandardField.EPRINTCLASS, StandardField.EPRINTTYPE,
-                    StandardField.URL, StandardField.URLDATE)
             .build();
 
     public static final List<BibEntryType> ALL = Arrays.asList(ARTICLE, BOOK, MVBOOK, INBOOK, BOOKINBOOK, SUPPBOOK,

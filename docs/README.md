@@ -1,6 +1,6 @@
 # Develop JabRef
 
-This page presents all development informatation around JabRef. 
+This page presents all development informatation around JabRef.
 
 ## Starting point for newcomers
 
@@ -58,6 +58,6 @@ For new ADRs, please use [template.md](adr/template.md) as basis. More informati
 
 ## FAQ
 
-- Q: I get `java: package org.jabref.logic.journals does not exist`.  
+* Q: I get `java: package org.jabref.logic.journals does not exist`.  
   A: You have to ignore `buildSrc/src/main`  as source directory in IntelliJ as indicated in our [setup guide](https://devdocs.jabref.org/getting-into-the-code/guidelines-for-setting-up-a-local-workspace).
      Also filed as IntelliJ issue [IDEA-240250](https://youtrack.jetbrains.com/issue/IDEA-240250).
