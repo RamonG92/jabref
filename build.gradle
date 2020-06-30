@@ -762,6 +762,10 @@ sonarqube {
     property "sonar.projectKey", "RamonG92_jabref"
     property "sonar.organization", "ramong92-github"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.tests", "junit"
+    property "sonar.dynamicAnalysis", "reuseReports"
+    property "sonar.junit.reportsPath", "$buildDir/test-results/test"
+    property "sonar.java.coveragePlugin", "jacoco"
     property "sonar.login", "0e6b65edaef11d6e5f050caaa88ef29250e765cb"
     property "sonar.jacoco.reportPath", "$buildDir/jacoco/test.exec"
   }
