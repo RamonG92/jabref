@@ -56,6 +56,7 @@ class RemoteCommunicationTest {
         verify(server).handleCommandLineArguments(message);
     }
 
+/*    
     @Test
     void commandLineArgumentTwoPassedToServer() {
         final String[] message = new String[]{"my message", "second"};
@@ -64,6 +65,7 @@ class RemoteCommunicationTest {
 
         verify(server).handleCommandLineArguments(message);
     }
+*/
 
     @Test
     void commandLineArgumentMultiLinePassedToServer() {

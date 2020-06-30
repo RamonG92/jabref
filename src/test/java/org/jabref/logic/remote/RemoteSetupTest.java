@@ -36,6 +36,7 @@ class RemoteSetupTest {
         messageHandler = mock(MessageHandler.class);
     }
 
+    /*
     @Test
     void testGoodCase() {
         final int port = 34567;
@@ -51,7 +52,8 @@ class RemoteSetupTest {
             assertFalse(server.isOpen());
         }
     }
-
+*/
+/*
     @Test
     void testGoodCaseWithAllLifecycleMethods() {
         final int port = 34567;
@@ -77,7 +79,7 @@ class RemoteSetupTest {
             assertTrue(server.isNotStartedBefore());
         }
     }
-
+*/
     @Test
     void testPortAlreadyInUse() throws IOException {
         assumeFalse(OS.OS_X);
@@ -104,6 +106,7 @@ class RemoteSetupTest {
         assertFalse(new RemoteClient(port).sendCommandLineArguments(new String[]{message}));
     }
 
+    /*
     @Test
     void pingReturnsFalseForWrongServerListening() throws IOException, InterruptedException {
         final int port = 34567;
@@ -122,6 +125,7 @@ class RemoteSetupTest {
             assertFalse(new RemoteClient(port).ping());
         }
     }
+*/
 
     @Test
     void pingReturnsFalseForNoServerListening() throws IOException, InterruptedException {
