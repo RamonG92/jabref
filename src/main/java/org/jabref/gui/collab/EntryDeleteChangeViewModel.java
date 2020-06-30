@@ -17,8 +17,8 @@ import org.slf4j.LoggerFactory;
 class EntryDeleteChangeViewModel extends DatabaseChangeViewModel {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EntryDeleteChangeViewModel.class);
-    private final BibEntry entry;
     private static final String DELETED_ENTRY = "Deleted entry";
+    private final BibEntry entry;
 
     public EntryDeleteChangeViewModel(BibEntry entry) {
         super(Localization.lang(DELETED_ENTRY));

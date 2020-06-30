@@ -13,6 +13,6 @@ class DBMSConnectionTest {
     @Test
     void checkDBTypeTest() {
         dbmsconnection = mock(DBMSConnection.class);
-        assertTrue(dbmsconnection.getAvailableDBMSTypes().toString().contains("MySQL"));
+        assertTrue(DBMSConnection.getAvailableDBMSTypes().toString().contains("MySQL"));
     }
 }
